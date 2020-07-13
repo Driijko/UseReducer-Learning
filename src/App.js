@@ -1,13 +1,13 @@
-import React, {useContext} from 'react';
-import Context from "./store/Context";
+import React from 'react';
+
+import Login from "./components/auth/Login";
 
 function App() {
 
-  const {test} = useContext(Context);
 
   return (
     <div className="App">
-      {test}
+      <Login />
     </div>
   );
 }

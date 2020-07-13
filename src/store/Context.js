@@ -1,12 +1,16 @@
-import React, {createContext, useContext, useReducer, useState} from "react";
+import React, {createContext, useReducer} from "react";
+
+import {authReducer} from "./data/auth";
+import {initAuthState} from "./data/auth";
 
 const Context = createContext();
 
 function ContextProvider(props) {
-  const [test, setTest] = useState("hello world");
+
+  const [state, dispatchAuth] = useReducer(authReducer, initAuthState);
 
   return (
-    <Context.Provider value={{test}} >
+    <Context.Provider value={{}} >
       {props.children}
     </Context.Provider>
   )
