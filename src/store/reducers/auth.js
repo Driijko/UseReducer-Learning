@@ -3,11 +3,14 @@ import users from "./users";
 export const initAuthState = {
   isLoggedIn: false,
   isLogInError: false,
-  userName: "My",
+  userName: "",
 }
 
 export function authReducer(state, action) {
+
   switch (action.type) {
+
+    // LOGIN /////////////////////////////////////////////////////////////////////////////
     case "LOGIN": {
       const user = users.find(user => {
         return user.name === action.user.name && user.password === action.user.password;
@@ -24,6 +27,15 @@ export function authReducer(state, action) {
           ...state,
           isLogInError: true
         }
+      }
+    }
+
+    // LOGOUT //////////////////////////////////////////////////////////////////////////////////
+    case "LOGOUT": {
+      return {
+        ...state,
+        isLoggedIn: false,
+        userName: "",
       }
     }
 

@@ -1,9 +1,11 @@
+// IMPORTS /////////////////////////////////////////////////////////////////////////////
 import React, {useState, useContext} from "react";
 
 import Context from "../../store/Context";
 
 export default function Login(props) {
 
+  // PERSISTENT STATE //////////////////////////////////////////////////////////////////////
   const {authDispatch, authState} = useContext(Context);
   // console.log(authState);
 
@@ -36,15 +38,11 @@ export default function Login(props) {
         <input id="passwordField" type="password" value={password} placeholder="password" onChange={handleChange} />
         <button>Login</button>
       </form>
-      {authState.isLoggedIn ? 
-        <div>Hello {authState.userName}</div>
-        : null
-      }
       {authState.isLogInError ?
         <div>Incorrect username or password</div>
         : null
       }
     </div>
   )
-
 }
+///////////////////////////////////////////////////////////////////////////////////////////////////////
